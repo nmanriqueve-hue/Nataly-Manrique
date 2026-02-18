@@ -6,14 +6,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #f3e8ff, #e9d5ff);
+            background: linear-gradient(to bottom, #6B3F69, #e9d5ff);
             text-align: center;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #c084fc;
+            background-color: #540863;
             padding: 25px;
             color: white;
         }
@@ -29,26 +29,89 @@
             margin-top: 30px;
             border-radius: 15px;
         }
+
+        details {
+            margin: 20px auto;
+            width: 60%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        summary {
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #7c3aed;
+            background-color: white;
+        }
+
+        .diagrama {
+            width: 300px;
+            border-radius: 10px;
+            border: none;
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <h1>Presentación </h1>
+        <h1>Presentación</h1>
     </header>
-    <h1>Nataly Manrique Vera </h1>
+
+    <h1>Nataly Manrique Vera</h1>
 
     <img src="IMG_20260214_211805.jpg" alt="Foto de Nataly">
 
     <br>
-
-    <iframe width="320" height="215"
+<iframe width="320" height="215"
         src="https://www.youtube.com/embed/TYw2urm0lJg"
         title="Video de presentación"
         frameborder="0"
         allowfullscreen>
     </iframe>
 
+<br>    
+   <details>
+    <summary>Mis gustos</summary>
+
+    <details>
+        <summary>Música</summary>
+        <p>Mi música favorita es la música pop, un poco el rock en español e inglés y un poco la música mexicana.</p>
+
+        <p>
+            <a href="https://open.spotify.com/playlist/06hVzDSFUblvYGYqANEWEL?si=PipHBbOEQbGQun1sXEEQhA&pi=FMlsA5GYSn6l2" 
+               target="_blank">
+               Algunas de ellas
+            </a>
+        </p>
+
+    </details>
+
+</details>
+
+
+    <details>
+        <summary>Hobbies</summary>
+        <p>Me gusta mucho jugar videojuegos, unos de mis favoritos es minecraft, slime rancher y counter, entre otros, no practico ningun deporte pero me gusta bastante jugar bádminton </p>
+    </details>
+
+
+
+
+    
+    <details>
+        <summary>Actividades de la universidad</summary>
+            <details>
+        <summary>Modelos</summary>
+       
+        <img src="Modelo.png"  >
+    </details>
+    </details>
+    <br>
+
+    
 </body>
 </html>
