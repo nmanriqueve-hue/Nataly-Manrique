@@ -18,7 +18,7 @@
             color: white;
         }
 
-        img {
+        img.circular {
             width: 170px;
             border-radius: 50%;
             margin-top: 30px;
@@ -47,10 +47,17 @@
             background-color: white;
         }
 
-        .diagrama {
+        img.diagrama {
             width: 300px;
             border-radius: 10px;
             border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+
+        img.diagrama:active {
+            transform: scale(1.8);
         }
     </style>
 </head>
@@ -63,55 +70,52 @@
 
     <h1>Nataly Manrique Vera</h1>
 
-    <img src="IMG_20260214_211805.jpg" alt="Foto de Nataly">
+    <img src="IMG_20260214_211805.jpg" alt="Foto de Nataly" class="circular">
 
     <br>
-<iframe width="320" height="215"
+
+    <iframe width="320" height="215"
         src="https://www.youtube.com/embed/TYw2urm0lJg"
         title="Video de presentación"
         frameborder="0"
         allowfullscreen>
     </iframe>
 
-<br>    
-   <details>
-    <summary>Mis gustos</summary>
+    <br>    
 
     <details>
-        <summary>Música</summary>
-        <p>Mi música favorita es la música pop, un poco el rock en español e inglés y un poco la música mexicana.</p>
+        <summary>Mis gustos</summary>
 
-        <p>
-            <a href="https://open.spotify.com/playlist/06hVzDSFUblvYGYqANEWEL?si=PipHBbOEQbGQun1sXEEQhA&pi=FMlsA5GYSn6l2" 
-               target="_blank">
-               Algunas de ellas
-            </a>
-        </p>
+        <details>
+            <summary>Música</summary>
+            <p>Mi música favorita es la música pop, un poco el rock en español e inglés y un poco la música mexicana.</p>
+
+            <p>
+                <a href="https://open.spotify.com/playlist/06hVzDSFUblvYGYqANEWEL?si=PipHBbOEQbGQun1sXEEQhA&pi=FMlsA5GYSn6l2" 
+                   target="_blank">
+                   Algunas de ellas
+                </a>
+            </p>
+
+        </details>
 
     </details>
-
-</details>
-
 
     <details>
         <summary>Hobbies</summary>
         <p>Me gusta mucho jugar videojuegos, unos de mis favoritos es minecraft, slime rancher y counter, entre otros, no practico ningun deporte pero me gusta bastante jugar bádminton </p>
     </details>
 
-
-
-
-    
     <details>
         <summary>Actividades de la universidad</summary>
-            <details>
-        <summary>Modelos</summary>
-       
-        <img src="Modelo.png"  >
+        <details>
+            <summary>Modelos</summary>
+           
+            <img src="Modelo.png" class="diagrama" alt="Diagrama de actividades">
+        </details>
     </details>
-    </details>
+
     <br>
 
-    
 </body>
 </html>
