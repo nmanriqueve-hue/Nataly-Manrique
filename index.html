@@ -1,294 +1,522 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Portafolio · Nataly Manrique Vera</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://img.freepik.com/vector-premium/vibrante-representacion-estilo-dibujos-animados-flor-cerezo_684903-1460.jpg?semt=ais_hybrid&w=740&q=80">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png"
+        href="https://img.freepik.com/vector-premium/vibrante-representacion-estilo-dibujos-animados-flor-cerezo_684903-1460.jpg?semt=ais_hybrid&w=740&q=80">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         :root {
-            --deep-purple: #3b1a5e;
-            --mid-purple: #6B3F69;
-            --accent: #a855f7;
-            --light-purple: #e9d5ff;
-            --white: #ffffff;
-            --text-dark: #1e0a2e;
-            --text-muted: #7a5c9a;
-            --surface: rgba(255,255,255,0.85);
+            --plum:       #4a2c6e;
+            --violet:     #6b3fa0;
+            --lavender:   #9b72cf;
+            --lilac:      #c8a8e9;
+            --mist:       #ede6f7;
+            --fog:        #f7f3fc;
+            --white:      #ffffff;
+            --ink:        #1e0f2e;
+            --slate:      #5c4875;
+            --ghost:      rgba(255,255,255,0.72);
+            --glass:      rgba(255,255,255,0.55);
+            --shadow-sm:  0 2px 12px rgba(74,44,110,0.10);
+            --shadow-md:  0 8px 32px rgba(74,44,110,0.16);
+            --shadow-lg:  0 20px 60px rgba(74,44,110,0.22);
+            --radius-sm:  10px;
+            --radius-md:  18px;
+            --radius-lg:  28px;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Lato', sans-serif;
-            background: linear-gradient(160deg, #2d0f4e 0%, #6B3F69 50%, #c4a5e0 100%);
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--fog);
+            background-image:
+                radial-gradient(ellipse 80% 60% at 10% 0%, rgba(155,114,207,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 90% 100%, rgba(107,63,160,0.14) 0%, transparent 55%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='%236b3fa0' fill-opacity='0.06'/%3E%3C/svg%3E");
             min-height: 100vh;
-            color: var(--text-dark);
+            color: var(--ink);
+            overflow-x: hidden;
         }
 
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--mist); }
+        ::-webkit-scrollbar-thumb { background: var(--lavender); border-radius: 10px; }
+
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(45, 15, 78, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(168,85,247,0.25);
-            padding: 0 40px;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            height: 64px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 60px;
+            padding: 0 48px;
+            background: rgba(247,243,252,0.82);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(155,114,207,0.18);
+            transition: box-shadow var(--transition);
         }
 
-        nav .logo {
-            font-family: 'Playfair Display', serif;
-            color: var(--light-purple);
-            font-size: 1rem;
-            letter-spacing: 0.08em;
-            font-weight: 400;
+        nav.scrolled { box-shadow: var(--shadow-md); }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--plum);
+            letter-spacing: 0.12em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--lavender);
+            border-radius: 50%;
+            display: inline-block;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 32px;
+            gap: 8px;
+            align-items: center;
         }
 
         nav ul li a {
-            font-size: 0.78rem;
-            letter-spacing: 0.12em;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(233,213,255,0.75);
+            color: var(--slate);
             text-decoration: none;
-            transition: color 0.2s;
+            padding: 7px 14px;
+            border-radius: 40px;
+            transition: all var(--transition);
         }
 
         nav ul li a:hover {
-            color: var(--white);
+            color: var(--violet);
+            background: rgba(155,114,207,0.12);
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-hamburger span {
+            width: 22px; height: 2px;
+            background: var(--violet);
+            border-radius: 2px;
+            transition: var(--transition);
         }
 
         .hero {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 80px 20px 60px;
+            justify-content: center;
+            padding: 100px 24px 80px;
             text-align: center;
-            animation: fadeUp 0.9s ease both;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; left: 50%;
+            transform: translateX(-50%);
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(155,114,207,0.22) 0%, transparent 65%);
+            pointer-events: none;
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            from { transform: translateX(-50%) scale(1); opacity: 0.7; }
+            to   { transform: translateX(-50%) scale(1.15); opacity: 1; }
         }
 
         .hero-photo-wrapper {
             position: relative;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
+            animation: fadeDown 0.9s ease both;
         }
 
-        .hero-photo-wrapper::before {
-            content: '';
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-ring {
             position: absolute;
-            inset: -6px;
+            inset: -10px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, #a855f7, #e9d5ff, #6B3F69, #a855f7);
-            animation: spin 6s linear infinite;
+            background: conic-gradient(from 0deg, var(--violet), var(--lilac), var(--lavender), var(--violet));
+            animation: spin 7s linear infinite;
             z-index: 0;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .hero-ring-inner {
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: var(--fog);
+            z-index: 1;
         }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         .hero-photo-wrapper img {
             position: relative;
-            z-index: 1;
-            width: 160px;
-            height: 160px;
+            z-index: 2;
+            width: 170px; height: 170px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid var(--deep-purple);
+            border: 4px solid var(--white);
             display: block;
+            box-shadow: var(--shadow-lg);
         }
 
-        .hero-tag {
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(155,114,207,0.14);
+            border: 1px solid rgba(155,114,207,0.35);
+            border-radius: 40px;
+            padding: 6px 18px;
             font-size: 0.7rem;
-            letter-spacing: 0.2em;
+            font-weight: 600;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-weight: 700;
+            color: var(--violet);
+            margin-bottom: 18px;
+            animation: fadeUp 0.9s 0.1s ease both;
         }
+
+        .hero-badge i { font-size: 0.65rem; }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 6vw, 4rem);
             font-weight: 700;
-            color: var(--white);
-            line-height: 1.2;
-            margin-bottom: 10px;
+            color: var(--plum);
+            line-height: 1.1;
+            margin-bottom: 16px;
+            animation: fadeUp 0.9s 0.2s ease both;
         }
 
-        .hero p.subtitle {
-            font-size: 0.95rem;
-            color: rgba(233,213,255,0.8);
-            font-weight: 300;
-            letter-spacing: 0.05em;
+        .hero-subtitle {
+            font-size: 0.92rem;
+            color: var(--slate);
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            max-width: 400px;
+            line-height: 1.7;
+            animation: fadeUp 0.9s 0.3s ease both;
         }
 
-       
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(to right, var(--accent), transparent);
-            margin: 24px auto;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-divider {
+            width: 1px;
+            height: 56px;
+            background: linear-gradient(to bottom, var(--lavender), transparent);
+            margin: 32px auto 0;
+            animation: fadeUp 0.9s 0.4s ease both;
         }
 
         
-        .video-section {
+        .stats-bar {
             display: flex;
             justify-content: center;
-            padding: 10px 20px 40px;
-            animation: fadeUp 1.1s ease both;
-            animation-delay: 0.15s;
+            gap: 0;
+            flex-wrap: wrap;
+            padding: 0 24px 60px;
+            animation: fadeUp 0.9s 0.45s ease both;
         }
 
-        .video-wrapper {
-            background: var(--surface);
-            border-radius: 16px;
-            padding: 12px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-            border: 1px solid rgba(168,85,247,0.2);
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 28px 44px;
+            position: relative;
         }
 
-        .video-wrapper iframe {
-            border-radius: 10px;
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0; top: 20%; bottom: 20%;
+            width: 1px;
+            background: rgba(155,114,207,0.25);
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--violet);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--slate);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        .video-section {
+            padding: 0 24px 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(155,114,207,0.15);
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--violet), var(--lilac), var(--lavender));
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(155,114,207,0.2);
+        }
+
+        .video-card iframe {
+            border-radius: var(--radius-sm);
             display: block;
         }
 
-
-        .content {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            animation: fadeUp 1.2s ease both;
-            animation-delay: 0.25s;
+        .section-header {
+            text-align: center;
+            padding: 0 24px 48px;
         }
 
-        
+        .section-eyebrow {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--lavender);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            color: var(--plum);
+        }
+
+        .tech-section {
+            padding: 0 24px 80px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .tech-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: 1px solid rgba(155,114,207,0.22);
+            border-radius: 40px;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--slate);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+        }
+
+        .tech-pill i {
+            color: var(--violet);
+            font-size: 0.85rem;
+        }
+
+        .tech-pill:hover {
+            border-color: var(--lavender);
+            background: var(--mist);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: var(--plum);
+        }
+
+        .content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         details {
-            background: var(--surface);
-            border-radius: 12px;
-            border: 1px solid rgba(168,85,247,0.2);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(155,114,207,0.16);
+            box-shadow: var(--shadow-sm);
             overflow: hidden;
-            transition: box-shadow 0.3s;
+            transition: box-shadow var(--transition), transform var(--transition);
         }
 
         details:hover {
-            box-shadow: 0 6px 28px rgba(0,0,0,0.18);
+            box-shadow: var(--shadow-md);
         }
 
         details[open] {
-            border-color: rgba(168,85,247,0.45);
+            border-color: rgba(155,114,207,0.3);
+            box-shadow: var(--shadow-md);
         }
 
         summary {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.08rem;
             font-weight: 600;
-            color: var(--deep-purple);
-            padding: 18px 24px;
+            color: var(--plum);
+            padding: 22px 28px;
             cursor: pointer;
             list-style: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            letter-spacing: 0.02em;
+            gap: 16px;
             user-select: none;
+            transition: background var(--transition);
         }
 
         summary::-webkit-details-marker { display: none; }
 
-        summary::after {
-            content: '+';
-            font-size: 1.4rem;
-            color: var(--accent);
-            font-family: 'Lato', sans-serif;
-            font-weight: 300;
-            transition: transform 0.3s;
+        summary:hover { background: rgba(155,114,207,0.05); }
+
+        .summary-icon {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: rgba(155,114,207,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--violet);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            transition: all var(--transition);
         }
 
-        details[open] > summary::after {
+        details[open] .summary-icon {
+            background: var(--violet);
+            color: var(--white);
             transform: rotate(45deg);
         }
 
         .detail-body {
-            padding: 0 24px 20px;
-            border-top: 1px solid rgba(168,85,247,0.15);
+            padding: 0 28px 26px;
+            border-top: 1px solid rgba(155,114,207,0.1);
         }
 
         .detail-body p {
-            font-size: 0.9rem;
-            color: #4a2d6e;
-            line-height: 1.75;
-            padding-top: 14px;
-            font-weight: 300;
+            font-size: 0.92rem;
+            color: #4a3860;
+            line-height: 1.8;
+            padding-top: 18px;
         }
 
         .detail-body a {
-            color: var(--accent);
+            color: var(--violet);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid rgba(168,85,247,0.3);
-            padding-bottom: 1px;
-            transition: border-color 0.2s, color 0.2s;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(107,63,160,0.25);
+            transition: border-color var(--transition), color var(--transition);
         }
 
         .detail-body a:hover {
-            color: var(--deep-purple);
-            border-color: var(--deep-purple);
+            color: var(--plum);
+            border-color: var(--plum);
         }
 
-       
         .detail-body details {
-            margin-top: 12px;
-            background: rgba(233,213,255,0.35);
-            border-radius: 8px;
+            margin-top: 14px;
+            background: var(--fog);
+            border-radius: var(--radius-sm);
             box-shadow: none;
+            border: 1px solid rgba(155,114,207,0.14);
         }
 
         .detail-body details summary {
-            font-size: 0.88rem;
-            padding: 12px 18px;
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.06em;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--mid-purple);
+            color: var(--lavender);
+            padding: 14px 20px;
         }
+
+        .detail-body details summary:hover { background: rgba(155,114,207,0.07); }
 
         .detail-body details .detail-body {
-            padding: 0 18px 14px;
+            padding: 0 20px 18px;
         }
 
-      
+        .detail-body details details {
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(8px);
+        }
+
         .model-grid {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
-            padding-top: 14px;
+            padding-top: 16px;
         }
 
         .model-card {
@@ -299,63 +527,256 @@
         }
 
         img.modelo {
-            width: 150px;
-            height: 110px;
+            width: 160px;
+            height: 118px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
-            border: 2px solid rgba(168,85,247,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+            border: 2px solid rgba(155,114,207,0.18);
+            transition: all var(--transition);
+            background: var(--white);
+            padding: 4px;
+            box-shadow: var(--shadow-sm);
             display: block;
         }
 
         img.modelo:hover {
-            transform: scale(1.06);
-            box-shadow: 0 8px 24px rgba(107,63,105,0.4);
-            border-color: var(--accent);
+            transform: scale(1.06) translateY(-3px);
+            box-shadow: var(--shadow-md), 0 0 0 3px rgba(155,114,207,0.25);
+            border-color: var(--lavender);
         }
 
-        .model-label {
-            font-size: 0.72rem;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            text-transform: uppercase;
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--violet), var(--lavender));
+            color: var(--white) !important;
+            border-bottom: none !important;
+            padding: 9px 20px;
+            border-radius: 40px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-top: 14px;
+            transition: all var(--transition);
+            box-shadow: 0 4px 14px rgba(107,63,160,0.3);
+            text-decoration: none;
         }
+
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(107,63,160,0.4);
+            filter: brightness(1.08);
+        }
+
+        .link-btn i { font-size: 0.7rem; }
+
+        .file-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--fog);
+            border: 1px solid rgba(155,114,207,0.22);
+            border-radius: var(--radius-sm);
+            padding: 14px 20px;
+            margin-top: 14px;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .file-card:hover {
+            background: var(--mist);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--lavender);
+        }
+
+        .file-card-icon {
+            width: 42px; height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .file-card-icon.pdf { background: rgba(220,50,50,0.1); color: #dc3232; }
+        .file-card-icon.xls { background: rgba(33,150,83,0.1); color: #21a053; }
+
+        .file-card-info { display: flex; flex-direction: column; }
+        .file-card-name { font-size: 0.84rem; font-weight: 600; color: var(--plum); }
+        .file-card-sub  { font-size: 0.7rem; color: var(--slate); margin-top: 2px; font-weight: 400; }
+
+        .section-sep {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 0 24px;
+            max-width: 860px;
+            margin: 0 auto 40px;
+        }
+
+        .section-sep span { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--lavender); white-space: nowrap; font-style: italic; }
+        .section-sep::before,
+        .section-sep::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(155,114,207,0.3), transparent); }
 
         footer {
+            background: var(--plum);
+            color: rgba(255,255,255,0.55);
             text-align: center;
-            padding: 24px;
-            color: rgba(233,213,255,0.5);
+            padding: 48px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--lavender), transparent);
+        }
+
+        .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .footer-role {
             font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--lilac);
+            margin-bottom: 24px;
+        }
+
+        .footer-divider {
+            width: 50px; height: 1px;
+            background: rgba(155,114,207,0.4);
+            margin: 0 auto 20px;
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
             letter-spacing: 0.1em;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--violet), var(--lavender));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(107,63,160,0.4);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--transition);
+            z-index: 150;
+            border: none;
+            font-size: 0.85rem;
+        }
+
+        .scroll-top.visible { opacity: 1; transform: translateY(0); }
+        .scroll-top:hover { box-shadow: 0 10px 30px rgba(107,63,160,0.5); transform: translateY(-2px); }
+
+        @media (max-width: 700px) {
+            nav { padding: 0 20px; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(247,243,252,0.97); border-bottom: 1px solid rgba(155,114,207,0.18); padding: 16px; gap: 4px; backdrop-filter: blur(20px); }
+            nav ul.open { display: flex; }
+            .nav-hamburger { display: flex; }
+
+            .stat-item { padding: 20px 28px; }
+            .stat-number { font-size: 1.9rem; }
+
+            summary { padding: 18px 20px; font-size: 1rem; }
+            .detail-body { padding: 0 20px 20px; }
+
+            img.modelo { width: 130px; height: 96px; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
 
-    <nav>
-        <span class="logo">NMV · Portafolio</span>
-        <ul>
+    <nav id="mainNav">
+        <a class="nav-logo" href="#">NMV · Portafolio</a>
+
+        <ul id="navMenu">
             <li><a href="#gustos">Gustos</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#universidad">Universidad</a></li>
+            <li><a href="#estudios">Estudios</a></li>
+            <li><a href="#universidad">Actividades</a></li>
         </ul>
+
+        <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
 
     <section class="hero">
         <div class="hero-photo-wrapper">
+            <div class="hero-ring"></div>
+            <div class="hero-ring-inner"></div>
             <img src="IMG_20260214_211805.jpg" alt="Foto de Nataly">
         </div>
-        <p class="hero-tag">Estudiante · Ingeniería de Sistemas</p>
+
+        <div class="hero-badge">
+            <i class="fa-solid fa-graduation-cap"></i>
+            Estudiante · Ingeniería de Sistemas
+        </div>
+
         <h1>Nataly Manrique Vera</h1>
-        <div class="divider"></div>
-        <p class="subtitle">Bienvenid@ a mi portafolio personal</p>
+
+        <p class="hero-subtitle">Bienvenid@ a mi portafolio personal</p>
+
+        <div class="hero-divider"></div>
     </section>
 
-    <div class="video-section">
-        <div class="video-wrapper">
-            <iframe width="340" height="215"
+    <div class="stats-bar reveal">
+        <div class="stat-item">
+            <span class="stat-number">4°</span>
+            <span class="stat-label">Semestre</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">7+</span>
+            <span class="stat-label">Modelos ER</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">2026</span>
+            <span class="stat-label">Período</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">Curiosidad</span>
+        </div>
+    </div>
+
+    <div class="video-section reveal">
+        <div class="video-card">
+            <iframe width="360" height="225"
                 src="https://www.youtube.com/embed/TYw2urm0lJg"
                 title="Video de presentación"
                 frameborder="0"
@@ -364,245 +785,474 @@
         </div>
     </div>
 
+    <div class="section-sep reveal"><span>Tecnologías &amp; Herramientas</span></div>
+
+    <div class="tech-section reveal">
+        <div class="tech-grid">
+            <div class="tech-pill"><i class="fa-solid fa-database"></i> Bases de Datos</div>
+            <div class="tech-pill"><i class="fa-solid fa-diagram-project"></i> Modelado ER / ERE</div>
+            <div class="tech-pill"><i class="fa-solid fa-table"></i> Normalización</div>
+            <div class="tech-pill"><i class="fa-solid fa-code"></i> Álgebra Relacional</div>
+            <div class="tech-pill"><i class="fa-brands fa-microsoft"></i> Excel</div>
+            <div class="tech-pill"><i class="fa-solid fa-pen-ruler"></i> LucidChart</div>
+         <a href="https://github.com/nmanriqueve-hue" target="_blank" class="tech-pill">
+    <i class="fa-brands fa-github"></i> GitHub
+</a>
+           
+           
+        </div>
+    </div>
+
+    <div class="section-sep reveal"><span>Conóceme</span></div>
+
     <div class="content">
 
-        <details id="gustos">
-            <summary>Mis gustos</summary>
+        <details id="gustos" class="reveal">
+            <summary>
+                <span><i class="fa-solid fa-heart" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Mis gustos</span>
+                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+            </summary>
+
+            <div class="detail-body">
+                <details>
+                    <summary>
+                        <span><i class="fa-solid fa-music" style="margin-right:8px;"></i>Música</span>
+                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                    </summary>
+                    <div class="detail-body">
+                        <p>
+                            Mi música favorita es la música pop, un poco el rock en español e inglés y un poco la música mexicana.
+                        </p>
+                        <br>
+                        <a class="link-btn" href="https://open.spotify.com/playlist/06hVzDSFUblvYGYqANEWEL?si=PipHBbOEQbGQun1sXEEQhA&pi=FMlsA5GYSn6l2" target="_blank">
+                            <i class="fa-brands fa-spotify"></i> Ver canciones favoritas
+                        </a>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <details id="hobbies" class="reveal">
+            <summary>
+                <span><i class="fa-solid fa-gamepad" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Hobbies</span>
+                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+            </summary>
+            <div class="detail-body">
+                <p>
+                    Me gusta mucho jugar videojuegos; algunos de mis favoritos son Minecraft, Slime Rancher y Counter-Strike, entre otros.
+                </p>
+            </div>
+        </details>
+
+        <details id="estudios" class="reveal">
+            <summary>
+                <span><i class="fa-solid fa-building-columns" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Estudios</span>
+                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+            </summary>
+            <div class="detail-body">
+                <details>
+                    <summary>
+                        <span>Universidad El Bosque</span>
+                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                    </summary>
+                    <div class="detail-body">
+                        <p>
+                            Actualmente estudio Ingeniería de Sistemas en la Universidad El Bosque en 4 semestre.
+                        </p>
+                        <br>
+                        <a class="link-btn" href="https://www.unbosque.edu.co/el-bosque-digital" target="_blank">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Más información
+                        </a>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <details id="universidad" class="reveal">
+            <summary>
+                <span><i class="fa-solid fa-folder-open" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Actividades trabajadas</span>
+                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+            </summary>
+
             <div class="detail-body">
 
+               
                 <details>
-                    <summary>Música</summary>
+                    <summary>
+                        <span>Modelos ER y ERE</span>
+                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                    </summary>
                     <div class="detail-body">
-                        <p>Mi música favorita es la música pop, un poco el rock en español e inglés y un poco la música mexicana.</p>
-                        <p style="padding-top:10px;">
-                            <a href="https://open.spotify.com/playlist/06hVzDSFUblvYGYqANEWEL?si=PipHBbOEQbGQun1sXEEQhA&pi=FMlsA5GYSn6l2" target="_blank">
-                                Ver algunas de mis canciones favoritas →
-                            </a>
+
+                        <details>
+                            <summary>
+                                <span>Primer Modelo</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <a href="Modelo.png" target="_blank">
+                                    <img src="Modelo.png" class="modelo" alt="Primer modelo">
+                                </a>
+                                <p>
+                                    Este modelo entidad-relación representa un sistema de vuelos donde se relacionan las entidades VUELO, AVIÓN, PILOTO y TRIPULACIÓN. Cada entidad contiene información importante, como el número de vuelo, tipo de avión, código del piloto y datos de la tripulación.
+                                </p>
+                                <br>
+                                <a class="link-btn" href="https://lucid.app/lucidchart/b617ad19-4648-406a-9fcb-a84fd3de18b1/edit?invitationId=inv_1222ef7b-c1c8-411a-a71b-e624bd7d92be&page=0_0#" target="_blank">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en LucidChart
+                                </a>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>
+                                <span>Segundo Modelo</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <a href="Segundo Modelo.png" target="_blank">
+                                    <img src="Segundo Modelo.png" class="modelo" alt="Segundo modelo">
+                                </a>
+                                <p>
+                                    Este modelo entidad-relación representa un sistema de visualización de contenido donde la entidad principal es USUARIO. El usuario puede ver contenido, realizar búsquedas y revisar un historial de visualización.
+                                </p>
+                                <br>
+                                <a class="link-btn" href="https://lucid.app/lucidchart/46a9b657-e80f-4430-b576-bac90c07925b/edit?invitationId=inv_1876558f-378d-406e-bef5-d5447849c931&page=0_0#" target="_blank">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en LucidChart
+                                </a>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>
+                                <span>Tercer Modelo</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <a href="Tercer Modelo.png" target="_blank">
+                                    <img src="Tercer Modelo.png" class="modelo" alt="Tercer modelo">
+                                </a>
+                                <p>
+                                    Este modelo entidad-relación representa un sistema de biblioteca donde las entidades principales son LIBRO y PERSONA. El sistema almacena información de los libros y permite gestionar préstamos.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>
+                                <span>Actividad de los 7 Modelos</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <p>
+                                    Desarrollo de 7 ejercicios de modelos entidad-relación utilizando la notación Peter Chen. Los ejercicios incluyen diferentes contextos como universidades, hospitales y sistemas de ventas.
+                                </p>
+                                <br>
+                                <a class="link-btn" href="https://lucid.app/lucidchart/962a097e-99e2-4f89-b140-e314c2bfbb7a/edit?invitationId=inv_8aa05caf-2ec0-4388-afae-c504fd0f3078&page=0_0#" target="_blank">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver actividad
+                                </a>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>
+                                <span>Actividad documentos 3 y 4</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <p>
+                                    Aplicación del modelo entidad-relación extendido en casos más complejos, utilizando conceptos como herencia, especialización y generalización.
+                                </p>
+                                <br>
+                                <a class="link-btn" href="https://drive.google.com/file/d/16GkYBCcYToKFanovoifqXsEZK1g2svTW/view?usp=sharing" target="_blank">
+                                    <i class="fa-brands fa-google-drive"></i> Ver documento
+                                </a>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>
+                                <span>Primer Taller Grupal – Fase 1</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+
+                                <details>
+                                    <summary>
+                                        <span>Company</span>
+                                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                    </summary>
+                                    <div class="detail-body">
+
+                                        <details>
+                                            <summary>
+                                                <span>Modelo Relacional Extendido</span>
+                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                            </summary>
+                                            <div class="detail-body">
+                                                <a href="Empresa.jpg" target="_blank">
+                                                    <img src="Empresa.jpg" class="modelo" alt="Empresa">
+                                                </a>
+                                                <p>
+                                                    Este modelo representa un sistema empresarial donde se relacionan empleados, departamentos, proyectos y ubicaciones.
+                                                </p>
+                                            </div>
+                                        </details>
+
+                                        <details>
+                                            <summary>
+                                                <span>Conversión a tablas</span>
+                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                            </summary>
+                                            <div class="detail-body">
+                                                <a href="REmpresat.jpg" target="_blank">
+                                                    <img src="Empresat.jpg" class="modelo" alt="Conversión Empresa">
+                                                </a>
+                                            </div>
+                                        </details>
+
+                                    </div>
+                                </details>
+
+                                <details>
+                                    <summary>
+                                        <span>Comidas Rápidas</span>
+                                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                    </summary>
+                                    <div class="detail-body">
+
+                                        <details>
+                                            <summary>
+                                                <span>Modelo Relacional Extendido</span>
+                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                            </summary>
+                                            <div class="detail-body">
+                                                <a href="Comida Rapida.jpg" target="_blank">
+                                                    <img src="Comida Rapida.jpg" class="modelo" alt="Comida rápida">
+                                                </a>
+                                                <p>
+                                                    Este modelo representa un sistema de pedidos para una pizzería, donde se gestionan clientes, pedidos, repartidores, promociones y artículos.
+                                                </p>
+                                            </div>
+                                        </details>
+
+                                        <details>
+                                            <summary>
+                                                <span>Conversión a tablas</span>
+                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                            </summary>
+                                            <div class="detail-body">
+                                                <a href="Comida Rapidat.jpg" target="_blank">
+                                                    <img src="Comida Rapidat.jpg" class="modelo" alt="Conversión comida rápida">
+                                                </a>
+                                            </div>
+                                        </details>
+
+                                    </div>
+                                </details>
+
+                                <details>
+                                    <summary>
+                                        <span>Residuos Tóxicos</span>
+                                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                    </summary>
+                                    <div class="detail-body">
+
+                                        <details>
+                                            <summary>
+                                                <span>Modelo Relacional Extendido</span>
+                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                            </summary>
+                                            <div class="detail-body">
+                                                <a href="Residuos Toxicos.jpg" target="_blank">
+                                                    <img src="Residuos Toxicos.jpg" class="modelo" alt="Residuos tóxicos">
+                                                </a>
+                                                <p>
+                                                    Este modelo representa un sistema de gestión de residuos donde intervienen empresas productoras y transportistas.
+                                                </p>
+                                            </div>
+                                        </details>
+
+                                        <details>
+                                            <summary>
+                                                <span>Conversión a tablas</span>
+                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                            </summary>
+                                            <div class="detail-body">
+                                                <a href="Residuos Toxicost.jpg" target="_blank">
+                                                    <img src="Residuos Toxicost.jpg" class="modelo" alt="Conversión residuos tóxicos">
+                                                </a>
+                                            </div>
+                                        </details>
+
+                                    </div>
+                                </details>
+
+                            </div>
+                        </details>
+
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        <span>Taller de Normalización</span>
+                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                    </summary>
+                    <div class="detail-body">
+                        <p>
+                            Este trabajo de normalización se enfoca en la organización y optimización de bases de datos mediante la aplicación de las formas normales.
                         </p>
+
+                        <details>
+                            <summary>
+                                <span>PDF</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <a class="file-card" href="Taller_Avanzado_Normalizacion_A (1).pdf" download>
+                                    <div class="file-card-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div class="file-card-info">
+                                        <span class="file-card-name">Taller de Normalización</span>
+                                        <span class="file-card-sub">Descargar PDF</span>
+                                    </div>
+                                </a>
+                                <br>
+                                <a href="Taller_Avanzado_Normalizacion_A (1).pdf" download>
+                                    <img src="pdf.png" class="modelo" alt="PDF Taller Normalización">
+                                </a>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>
+                                <span>Excel</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <a class="file-card" href="Taller_Avanzado_Normalizacion_A.xlsx" download>
+                                    <div class="file-card-icon xls"><i class="fa-solid fa-file-excel"></i></div>
+                                    <div class="file-card-info">
+                                        <span class="file-card-name">Taller de Normalización</span>
+                                        <span class="file-card-sub">Descargar Excel</span>
+                                    </div>
+                                </a>
+                                <br>
+                                <a href="Taller_Avanzado_Normalizacion_A.xlsx" download>
+                                    <img src="excel.png" class="modelo" alt="Excel Taller Normalización">
+                                </a>
+                                <p>
+                                    A través de distintos ejercicios se identifican redundancias y dependencias innecesarias para mejorar la estructura de las tablas.
+                                </p>
+                                <br>
+                                <a class="link-btn" href="https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/gpovedaga_unbosque_edu_co/IQD61SLMV5sdQb1aSNGs0xqfAXxEOTrbXn6wv9MxqNLjqlM?e=PnjuT7" target="_blank">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver actividad
+                                </a>
+                            </div>
+                        </details>
+
+                    </div>
+                </details>
+
+               
+                <details>
+                    <summary>
+                        <span>Álgebra Relacional</span>
+                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                    </summary>
+                    <div class="detail-body">
+                        <p>
+                            En esta actividad se desarrollaron ejercicios de álgebra relacional aplicando operaciones como selección, proyección, unión, diferencia y joins. Los ejercicios permitieron comprender cómo consultar y manipular información dentro de bases de datos relacionales mediante expresiones formales.
+                        </p>
+
+                        <details>
+                            <summary>
+                                <span>Ejercicios</span>
+                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                            </summary>
+                            <div class="detail-body">
+                                <a class="file-card" href="algebrarelacional.pdf" target="_blank">
+                                    <div class="file-card-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                                    <div class="file-card-info">
+                                        <span class="file-card-name">Álgebra Relacional</span>
+                                        <span class="file-card-sub">Ver PDF</span>
+                                    </div>
+                                </a>
+                                <br>
+                                <a href="algebrarelacional.pdf" target="_blank">
+                                    <img src="algebrarelacional.pdf" class="modelo" alt="Álgebra relacional">
+                                </a>
+                            </div>
+                        </details>
+
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        <span>Proyecto GeoQuest</span>
+                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                    </summary>
+                    <div class="detail-body">
+                        <p>
+                            GeoQuest es un proyecto académico desarrollado como una plataforma interactiva enfocada en el aprendizaje de geografía de manera dinámica y entretenida. El sistema permite a los usuarios poner a prueba sus conocimientos sobre países, capitales, banderas y continentes mediante diferentes modos de juego y preguntas. Además, el proyecto integra bases de datos, modelado relacional y desarrollo web para ofrecer una experiencia educativa organizada, intuitiva y atractiva para los usuarios, toda su documenta desarrollo y trabajo lo puedes encontrar en el repositorio de github.
+                        </p>
+                        <br>
+                        <a class="link-btn" href="https://github.com/isabellard/Geoquest#geoquest" target="_blank">
+                            <i class="fa-brands fa-github"></i> Backend
+                        </a>
+                        &nbsp;
+                        <a class="link-btn" href="https://github.com/isabellard/GeoquestFront" target="_blank">
+                            <i class="fa-brands fa-github"></i> Frontend
+                        </a>
                     </div>
                 </details>
 
             </div>
         </details>
 
-      
-        <details id="hobbies">
-            <summary>Hobbies</summary>
-            <div class="detail-body">
-                <p>Me gusta mucho jugar videojuegos; algunos de mis favoritos son Minecraft, Slime Rancher y Counter-Strike, entre otros. No practico ningún deporte formalmente, pero disfruto bastante el bádminton.</p>
-            </div>
-        </details>
-
-        <details id="universidad">
-            <summary>Actividades de la universidad</summary>
-            <div class="detail-body">
-
-                <details>
-                    <summary>Modelos</summary>
-                    <div class="detail-body">
-
-                        <details>
-                            <summary>Primer Modelo</summary>
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Modelo.png" target="_blank">
-                                            <img src="Modelo.png" class="modelo" alt="Primer modelo">
-                                        </a>
-                                        <span class="model-label">Modelo 1</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-
-                        <details>
-                            <summary>Segundo Modelo</summary>
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Segundo Modelo.png" target="_blank">
-                                            <img src="Segundo Modelo.png" class="modelo" alt="Segundo modelo">
-                                        </a>
-                                        <span class="model-label">Modelo 2</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-
-                        <details>
-                            <summary>Tercer Modelo</summary>
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Tercer Modelo.png" target="_blank">
-                                            <img src="Tercer Modelo.png" class="modelo" alt="Tercer modelo">
-                                        </a>
-                                        <span class="model-label">Modelo 3</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-
-                        <details>
-                            <summary>Actividad de los 7 Modelos</summary>
-                            <div class="detail-body">
-                                <p>
-                                     <a href="Actividad Modelos.pdf" target="_blank">
-                                            <img src="Actividad Modelos.pdf" class="modelo" alt="actividad modelos">
-                                     </a>
-                                </p>
-                            </div>
-                        </details>
-
-                        <details>
-                            <summary>Actividad documentos 3 y 4</summary>
-                            <div class="detail-body">
-                                <p>
-                                    <a href="https://drive.google.com/file/d/16GkYBCcYToKFanovoifqXsEZK1g2svTW/view?usp=sharing" target="_blank">
-                                        Ver documento en este link →
-                                    </a>
-                                </p>
-                            </div>
-                        </details>
-
-                        <details>
-                            <summary>Primer Taller Grupal - Fase 1 </summary>
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                            <details>
-                             <summary>COMPANY </summary>
-                            
-                           <details>
-                            <summary>Modelo Relacional Extendido</summary>
-                            
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Empresa.jpg" target="_blank">
-                                            <img src="Empresa.jpg"             													class="modelo" >
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-                             <details>
-                            <summary>Conversion a tablas</summary>
-                            
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="REmpresat.jpg" target="_blank">
-                                            <img src="Empresat.jpg"             													class="modelo" >
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-                        </details>
-                         <details>
-                            <summary>COMIDAS RAPIDAS </summary>
-                            
-                           <details>
-                            <summary>Modelo Relacional Extendido</summary>
-                            
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Comida Rapida.jpg" target="_blank">
-                                            <img src="Comida Rapida.jpg"             													class="modelo" >
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-                             <details>
-                            <summary>Conversion a tablas</summary>
-                            
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Comida Rapidat.jpg" target="_blank">
-                                            <img src="Comida Rapidat.jpg"             													class="modelo" >
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-                        </details>
-                        	 
-                           <details>
-                           <summary>RESIDUOS TOXICOS </summary>
-                            <details>
-                            <summary>Modelo Relacional Extendido</summary>
-                            
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Residuos Toxicos.jpg" target="_blank">
-                                            <img src="Residuos Toxicos.jpg"             													class="modelo" >
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-                             <details>
-                            <summary>Conversion a tablas</summary>
-                            
-                            <div class="detail-body">
-                                <div class="model-grid">
-                                    <div class="model-card">
-                                        <a href="Residuos Toxicost.jpg" target="_blank">
-                                            <img src="Residuos Toxicost.jpg"             													class="modelo" >
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            </details>
-                        </details>
-                        
-                        
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-                        </div>
-</details>
-<details>
-    <summary>TALLER DE NORMALIZACIÓN</summary>
-
-    <div class="detail-body">
-
-        <details>
-            <summary>PDF</summary>
-            <div class="detail-body">
-                <a href="Taller_Avanzado_Normalizacion_A (1).pdf" download>
-                    <img src="pdf.png" class="modelo" alt="PDF Taller Normalización">
-                </a>
-            </div>
-        </details>
-
-        <details>
-    <summary>EXCEL</summary>
-    <div class="detail-body">
-        <a href="Taller_Avanzado_Normalizacion_A.xlsx" download>
-            <img src="excel.png" class="modelo" alt="Excel Taller Normalización">
-        </a>
     </div>
-</details>
 
-    </div>
-</details>
+    <footer>
+        <div class="footer-name">Nataly Manrique Vera</div>
+        <div class="footer-role">Ingeniería de Sistemas · Universidad El Bosque</div>
+        <div class="footer-divider"></div>
+        <div class="footer-copy">Contacto: nmanriqueve@unbosque.edu.co</div>
+        <div class="footer-copy">Bogotá-Colombia</div>
+        <div class="footer-copy">2026-1 · Todos los derechos reservados</div>
+    </footer>
 
+  
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
-	</div>
-       </details>
-	</div>
+    <script>
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+            document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+        });
 
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('open');
+        }
 
-<footer>
-    2026-1 · Nataly Manrique Vera · Ingeniería de Sistemas
-</footer>
+        document.querySelectorAll('#navMenu a').forEach(a => {
+            a.addEventListener('click', () => document.getElementById('navMenu').classList.remove('open'));
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 60);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        reveals.forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
