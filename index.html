@@ -34,9 +34,15 @@
             --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'DM Sans', sans-serif;
@@ -50,13 +56,24 @@
             overflow-x: hidden;
         }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--mist); }
-        ::-webkit-scrollbar-thumb { background: var(--lavender); border-radius: 10px; }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--mist);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--lavender);
+            border-radius: 10px;
+        }
 
         nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 200;
             height: 64px;
             display: flex;
@@ -70,7 +87,9 @@
             transition: box-shadow var(--transition);
         }
 
-        nav.scrolled { box-shadow: var(--shadow-md); }
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
 
         .nav-logo {
             font-family: 'Cormorant Garamond', serif;
@@ -86,7 +105,8 @@
 
         .nav-logo::before {
             content: '';
-            width: 8px; height: 8px;
+            width: 8px;
+            height: 8px;
             background: var(--lavender);
             border-radius: 50%;
             display: inline-block;
@@ -125,7 +145,8 @@
         }
 
         .nav-hamburger span {
-            width: 22px; height: 2px;
+            width: 22px;
+            height: 2px;
             background: var(--violet);
             border-radius: 2px;
             transition: var(--transition);
@@ -146,17 +167,26 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -120px; left: 50%;
+            top: -120px;
+            left: 50%;
             transform: translateX(-50%);
-            width: 700px; height: 700px;
+            width: 700px;
+            height: 700px;
             background: radial-gradient(circle, rgba(155,114,207,0.22) 0%, transparent 65%);
             pointer-events: none;
             animation: heroGlow 8s ease-in-out infinite alternate;
         }
 
         @keyframes heroGlow {
-            from { transform: translateX(-50%) scale(1); opacity: 0.7; }
-            to   { transform: translateX(-50%) scale(1.15); opacity: 1; }
+            from {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.7;
+            }
+
+            to {
+                transform: translateX(-50%) scale(1.15);
+                opacity: 1;
+            }
         }
 
         .hero-photo-wrapper {
@@ -166,15 +196,28 @@
         }
 
         @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-ring {
             position: absolute;
             inset: -10px;
             border-radius: 50%;
-            background: conic-gradient(from 0deg, var(--violet), var(--lilac), var(--lavender), var(--violet));
+            background: conic-gradient(
+                from 0deg,
+                var(--violet),
+                var(--lilac),
+                var(--lavender),
+                var(--violet)
+            );
             animation: spin 7s linear infinite;
             z-index: 0;
         }
@@ -187,12 +230,17 @@
             z-index: 1;
         }
 
-        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
         .hero-photo-wrapper img {
             position: relative;
             z-index: 2;
-            width: 170px; height: 170px;
+            width: 170px;
+            height: 170px;
             object-fit: cover;
             border-radius: 50%;
             border: 4px solid var(--white);
@@ -217,7 +265,9 @@
             animation: fadeUp 0.9s 0.1s ease both;
         }
 
-        .hero-badge i { font-size: 0.65rem; }
+        .hero-badge i {
+            font-size: 0.65rem;
+        }
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
@@ -240,8 +290,15 @@
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-divider {
@@ -252,7 +309,6 @@
             animation: fadeUp 0.9s 0.4s ease both;
         }
 
-        
         .stats-bar {
             display: flex;
             justify-content: center;
@@ -273,7 +329,9 @@
         .stat-item:not(:last-child)::after {
             content: '';
             position: absolute;
-            right: 0; top: 20%; bottom: 20%;
+            right: 0;
+            top: 20%;
+            bottom: 20%;
             width: 1px;
             background: rgba(155,114,207,0.25);
         }
@@ -315,9 +373,16 @@
         .video-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--violet), var(--lilac), var(--lavender));
+            background: linear-gradient(
+                90deg,
+                var(--violet),
+                var(--lilac),
+                var(--lavender)
+            );
         }
 
         .video-card:hover {
@@ -435,12 +500,17 @@
             transition: background var(--transition);
         }
 
-        summary::-webkit-details-marker { display: none; }
+        summary::-webkit-details-marker {
+            display: none;
+        }
 
-        summary:hover { background: rgba(155,114,207,0.05); }
+        summary:hover {
+            background: rgba(155,114,207,0.05);
+        }
 
         .summary-icon {
-            width: 30px; height: 30px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: rgba(155,114,207,0.12);
             display: flex;
@@ -501,7 +571,9 @@
             padding: 14px 20px;
         }
 
-        .detail-body details summary:hover { background: rgba(155,114,207,0.07); }
+        .detail-body details summary:hover {
+            background: rgba(155,114,207,0.07);
+        }
 
         .detail-body details .detail-body {
             padding: 0 20px 18px;
@@ -570,7 +642,9 @@
             filter: brightness(1.08);
         }
 
-        .link-btn i { font-size: 0.7rem; }
+        .link-btn i {
+            font-size: 0.7rem;
+        }
 
         .file-card {
             display: inline-flex;
@@ -595,7 +669,8 @@
         }
 
         .file-card-icon {
-            width: 42px; height: 42px;
+            width: 42px;
+            height: 42px;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -604,12 +679,33 @@
             flex-shrink: 0;
         }
 
-        .file-card-icon.pdf { background: rgba(220,50,50,0.1); color: #dc3232; }
-        .file-card-icon.xls { background: rgba(33,150,83,0.1); color: #21a053; }
+        .file-card-icon.pdf {
+            background: rgba(220,50,50,0.1);
+            color: #dc3232;
+        }
 
-        .file-card-info { display: flex; flex-direction: column; }
-        .file-card-name { font-size: 0.84rem; font-weight: 600; color: var(--plum); }
-        .file-card-sub  { font-size: 0.7rem; color: var(--slate); margin-top: 2px; font-weight: 400; }
+        .file-card-icon.xls {
+            background: rgba(33,150,83,0.1);
+            color: #21a053;
+        }
+
+        .file-card-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .file-card-name {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--plum);
+        }
+
+        .file-card-sub {
+            font-size: 0.7rem;
+            color: var(--slate);
+            margin-top: 2px;
+            font-weight: 400;
+        }
 
         .section-sep {
             display: flex;
@@ -620,9 +716,26 @@
             margin: 0 auto 40px;
         }
 
-        .section-sep span { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--lavender); white-space: nowrap; font-style: italic; }
+        .section-sep span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--lavender);
+            white-space: nowrap;
+            font-style: italic;
+        }
+
         .section-sep::before,
-        .section-sep::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(155,114,207,0.3), transparent); }
+        .section-sep::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(155,114,207,0.3),
+                transparent
+            );
+        }
 
         footer {
             background: var(--plum);
@@ -636,9 +749,16 @@
         footer::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--lavender), transparent);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--lavender),
+                transparent
+            );
         }
 
         .footer-name {
@@ -658,7 +778,8 @@
         }
 
         .footer-divider {
-            width: 50px; height: 1px;
+            width: 50px;
+            height: 1px;
             background: rgba(155,114,207,0.4);
             margin: 0 auto 20px;
         }
@@ -670,8 +791,10 @@
 
         .scroll-top {
             position: fixed;
-            bottom: 28px; right: 28px;
-            width: 44px; height: 44px;
+            bottom: 28px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--violet), var(--lavender));
             color: var(--white);
@@ -688,22 +811,64 @@
             font-size: 0.85rem;
         }
 
-        .scroll-top.visible { opacity: 1; transform: translateY(0); }
-        .scroll-top:hover { box-shadow: 0 10px 30px rgba(107,63,160,0.5); transform: translateY(-2px); }
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            box-shadow: 0 10px 30px rgba(107,63,160,0.5);
+            transform: translateY(-2px);
+        }
 
         @media (max-width: 700px) {
-            nav { padding: 0 20px; }
-            nav ul { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(247,243,252,0.97); border-bottom: 1px solid rgba(155,114,207,0.18); padding: 16px; gap: 4px; backdrop-filter: blur(20px); }
-            nav ul.open { display: flex; }
-            .nav-hamburger { display: flex; }
+            nav {
+                padding: 0 20px;
+            }
 
-            .stat-item { padding: 20px 28px; }
-            .stat-number { font-size: 1.9rem; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(247,243,252,0.97);
+                border-bottom: 1px solid rgba(155,114,207,0.18);
+                padding: 16px;
+                gap: 4px;
+                backdrop-filter: blur(20px);
+            }
 
-            summary { padding: 18px 20px; font-size: 1rem; }
-            .detail-body { padding: 0 20px 20px; }
+            nav ul.open {
+                display: flex;
+            }
 
-            img.modelo { width: 130px; height: 96px; }
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .stat-item {
+                padding: 20px 28px;
+            }
+
+            .stat-number {
+                font-size: 1.9rem;
+            }
+
+            summary {
+                padding: 18px 20px;
+                font-size: 1rem;
+            }
+
+            .detail-body {
+                padding: 0 20px 20px;
+            }
+
+            img.modelo {
+                width: 130px;
+                height: 96px;
+            }
         }
 
         .reveal {
@@ -732,7 +897,9 @@
         </ul>
 
         <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
@@ -750,33 +917,42 @@
 
         <h1>Nataly Manrique Vera</h1>
 
-        <p class="hero-subtitle">Bienvenid@ a mi portafolio personal</p>
+        <p class="hero-subtitle">
+            Bienvenid@ a mi portafolio personal
+        </p>
 
         <div class="hero-divider"></div>
     </section>
 
     <div class="stats-bar reveal">
+
         <div class="stat-item">
-            <span class="stat-number">4°</span>
+            <span class="stat-number">4° y 5°</span>
             <span class="stat-label">Semestre</span>
         </div>
+
         <div class="stat-item">
             <span class="stat-number">7+</span>
-            <span class="stat-label">Modelos ER</span>
+            <span class="stat-label">Modelos</span>
         </div>
+
         <div class="stat-item">
             <span class="stat-number">2026</span>
             <span class="stat-label">Período</span>
         </div>
+
         <div class="stat-item">
             <span class="stat-number">∞</span>
             <span class="stat-label">Curiosidad</span>
         </div>
+
     </div>
 
     <div class="video-section reveal">
         <div class="video-card">
-            <iframe width="360" height="225"
+            <iframe
+                width="360"
+                height="225"
                 src="https://www.youtube.com/embed/TYw2urm0lJg"
                 title="Video de presentación"
                 frameborder="0"
@@ -785,473 +961,1154 @@
         </div>
     </div>
 
-    <div class="section-sep reveal"><span>Tecnologías &amp; Herramientas</span></div>
+    <div class="section-sep reveal">
+        <span>Tecnologías &amp; Herramientas</span>
+    </div>
 
     <div class="tech-section reveal">
+
         <div class="tech-grid">
-            <div class="tech-pill"><i class="fa-solid fa-database"></i> Bases de Datos</div>
-            <div class="tech-pill"><i class="fa-solid fa-diagram-project"></i> Modelado ER / ERE</div>
-            <div class="tech-pill"><i class="fa-solid fa-table"></i> Normalización</div>
-            <div class="tech-pill"><i class="fa-solid fa-code"></i> Álgebra Relacional</div>
-            <div class="tech-pill"><i class="fa-brands fa-microsoft"></i> Excel</div>
-            <div class="tech-pill"><i class="fa-solid fa-pen-ruler"></i> LucidChart</div>
-         <a href="https://github.com/nmanriqueve-hue" target="_blank" class="tech-pill">
-    <i class="fa-brands fa-github"></i> GitHub
-</a>
-           
-           
+
+            <div class="tech-pill">
+                <i class="fa-solid fa-database"></i>
+                Bases de Datos
+            </div>
+
+            <div class="tech-pill">
+                <i class="fa-solid fa-diagram-project"></i>
+                Modelado ER / ERE
+            </div>
+
+            <div class="tech-pill">
+                <i class="fa-solid fa-table"></i>
+                Normalización
+            </div>
+
+            <div class="tech-pill">
+                <i class="fa-solid fa-code"></i>
+                Álgebra Relacional
+            </div>
+
+            <div class="tech-pill">
+                <i class="fa-brands fa-microsoft"></i>
+                Excel
+            </div>
+
+            <div class="tech-pill">
+                <i class="fa-solid fa-pen-ruler"></i>
+                LucidChart
+            </div>
+
+            <a
+                href="https://github.com/nmanriqueve-hue"
+                target="_blank"
+                class="tech-pill">
+                <i class="fa-brands fa-github"></i>
+                GitHub
+            </a>
+
         </div>
     </div>
 
-    <div class="section-sep reveal"><span>Conóceme</span></div>
+    <div class="section-sep reveal">
+        <span>Conóceme</span>
+    </div>
 
     <div class="content">
 
         <details id="gustos" class="reveal">
+
             <summary>
-                <span><i class="fa-solid fa-heart" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Mis gustos</span>
-                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                <span>
+                    <i
+                        class="fa-solid fa-heart"
+                        style="color:var(--lavender);margin-right:10px;font-size:0.85rem;">
+                    </i>
+                    Mis gustos
+                </span>
+
+                <div class="summary-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
             </summary>
 
             <div class="detail-body">
+
                 <details>
+
                     <summary>
-                        <span><i class="fa-solid fa-music" style="margin-right:8px;"></i>Música</span>
-                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                        <span>
+                            <i
+                                class="fa-solid fa-music"
+                                style="margin-right:8px;">
+                            </i>
+                            Música
+                        </span>
+
+                        <div class="summary-icon">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
                     </summary>
+
                     <div class="detail-body">
+
                         <p>
                             Mi música favorita es la música pop, un poco el rock en español e inglés y un poco la música mexicana.
                         </p>
+
                         <br>
-                        <a class="link-btn" href="https://open.spotify.com/playlist/06hVzDSFUblvYGYqANEWEL?si=PipHBbOEQbGQun1sXEEQhA&pi=FMlsA5GYSn6l2" target="_blank">
-                            <i class="fa-brands fa-spotify"></i> Ver canciones favoritas
+
+                        <a
+                            class="link-btn"
+                            href="https://open.spotify.com/playlist/06hVzDSFUblvYGYqANEWEL?si=PipHBbOEQbGQun1sXEEQhA&pi=FMlsA5GYSn6l2"
+                            target="_blank">
+
+                            <i class="fa-brands fa-spotify"></i>
+                            Ver canciones favoritas
+
                         </a>
+
                     </div>
+
                 </details>
+
             </div>
+
         </details>
 
         <details id="hobbies" class="reveal">
+
             <summary>
-                <span><i class="fa-solid fa-gamepad" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Hobbies</span>
-                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                <span>
+                    <i
+                        class="fa-solid fa-gamepad"
+                        style="color:var(--lavender);margin-right:10px;font-size:0.85rem;">
+                    </i>
+                    Hobbies
+                </span>
+
+                <div class="summary-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
             </summary>
+
             <div class="detail-body">
+
                 <p>
-                    Me gusta mucho jugar videojuegos; algunos de mis favoritos son Minecraft, Slime Rancher y Counter-Strike, entre otros.
+                    Me gusta mucho jugar videojuegos; algunos de mis favoritos son Minecraft, Slime Rancher, Counter-Strike, Valorant y Fornite entre otros.
                 </p>
+
             </div>
+
         </details>
 
         <details id="estudios" class="reveal">
+
             <summary>
-                <span><i class="fa-solid fa-building-columns" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Estudios</span>
-                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                <span>
+                    <i
+                        class="fa-solid fa-building-columns"
+                        style="color:var(--lavender);margin-right:10px;font-size:0.85rem;">
+                    </i>
+                    Estudios
+                </span>
+
+                <div class="summary-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
             </summary>
+
             <div class="detail-body">
+
                 <details>
+
                     <summary>
                         <span>Universidad El Bosque</span>
-                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                        <div class="summary-icon">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
                     </summary>
+
                     <div class="detail-body">
+
                         <p>
-                            Actualmente estudio Ingeniería de Sistemas en la Universidad El Bosque en 4 semestre.
+                            Actualmente estudio Ingeniería de Sistemas en la Universidad El Bosque en 5 semestre.
                         </p>
+
                         <br>
-                        <a class="link-btn" href="https://www.unbosque.edu.co/el-bosque-digital" target="_blank">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Más información
+
+                        <a
+                            class="link-btn"
+                            href="https://www.unbosque.edu.co/el-bosque-digital"
+                            target="_blank">
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Más información
+
                         </a>
+
                     </div>
+
                 </details>
+
             </div>
+
         </details>
 
+        <!-- ACTIVIDADES -->
         <details id="universidad" class="reveal">
+
             <summary>
-                <span><i class="fa-solid fa-folder-open" style="color:var(--lavender);margin-right:10px;font-size:0.85rem;"></i>Actividades trabajadas</span>
-                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                <span>
+                    <i
+                        class="fa-solid fa-folder-open"
+                        style="color:var(--lavender);margin-right:10px;font-size:0.85rem;">
+                    </i>
+                    Actividades trabajadas
+                </span>
+
+                <div class="summary-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
             </summary>
 
             <div class="detail-body">
 
-               
+
                 <details>
+
                     <summary>
-                        <span>Modelos ER y ERE</span>
-                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                        <span>
+                            <i
+                                class="fa-solid fa-database"
+                                style="margin-right:8px;">
+                            </i>
+                            Bases1
+                        </span>
+
+                        <div class="summary-icon">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+
                     </summary>
+
                     <div class="detail-body">
 
+                        <!-- MODELOS ER Y ERE -->
                         <details>
-                            <summary>
-                                <span>Primer Modelo</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                            </summary>
-                            <div class="detail-body">
-                                <a href="Modelo.png" target="_blank">
-                                    <img src="Modelo.png" class="modelo" alt="Primer modelo">
-                                </a>
-                                <p>
-                                    Este modelo entidad-relación representa un sistema de vuelos donde se relacionan las entidades VUELO, AVIÓN, PILOTO y TRIPULACIÓN. Cada entidad contiene información importante, como el número de vuelo, tipo de avión, código del piloto y datos de la tripulación.
-                                </p>
-                                <br>
-                                <a class="link-btn" href="https://lucid.app/lucidchart/b617ad19-4648-406a-9fcb-a84fd3de18b1/edit?invitationId=inv_1222ef7b-c1c8-411a-a71b-e624bd7d92be&page=0_0#" target="_blank">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en LucidChart
-                                </a>
-                            </div>
-                        </details>
 
-                        <details>
                             <summary>
-                                <span>Segundo Modelo</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                            </summary>
-                            <div class="detail-body">
-                                <a href="Segundo Modelo.png" target="_blank">
-                                    <img src="Segundo Modelo.png" class="modelo" alt="Segundo modelo">
-                                </a>
-                                <p>
-                                    Este modelo entidad-relación representa un sistema de visualización de contenido donde la entidad principal es USUARIO. El usuario puede ver contenido, realizar búsquedas y revisar un historial de visualización.
-                                </p>
-                                <br>
-                                <a class="link-btn" href="https://lucid.app/lucidchart/46a9b657-e80f-4430-b576-bac90c07925b/edit?invitationId=inv_1876558f-378d-406e-bef5-d5447849c931&page=0_0#" target="_blank">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en LucidChart
-                                </a>
-                            </div>
-                        </details>
 
-                        <details>
-                            <summary>
-                                <span>Tercer Modelo</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                            </summary>
-                            <div class="detail-body">
-                                <a href="Tercer Modelo.png" target="_blank">
-                                    <img src="Tercer Modelo.png" class="modelo" alt="Tercer modelo">
-                                </a>
-                                <p>
-                                    Este modelo entidad-relación representa un sistema de biblioteca donde las entidades principales son LIBRO y PERSONA. El sistema almacena información de los libros y permite gestionar préstamos.
-                                </p>
-                            </div>
-                        </details>
+                                <span>
+                                    Modelos ER y ERE
+                                </span>
 
-                        <details>
-                            <summary>
-                                <span>Actividad de los 7 Modelos</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                            </summary>
-                            <div class="detail-body">
-                                <p>
-                                    Desarrollo de 7 ejercicios de modelos entidad-relación utilizando la notación Peter Chen. Los ejercicios incluyen diferentes contextos como universidades, hospitales y sistemas de ventas.
-                                </p>
-                                <br>
-                                <a class="link-btn" href="https://lucid.app/lucidchart/962a097e-99e2-4f89-b140-e314c2bfbb7a/edit?invitationId=inv_8aa05caf-2ec0-4388-afae-c504fd0f3078&page=0_0#" target="_blank">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver actividad
-                                </a>
-                            </div>
-                        </details>
+                                <div class="summary-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
 
-                        <details>
-                            <summary>
-                                <span>Actividad documentos 3 y 4</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
                             </summary>
-                            <div class="detail-body">
-                                <p>
-                                    Aplicación del modelo entidad-relación extendido en casos más complejos, utilizando conceptos como herencia, especialización y generalización.
-                                </p>
-                                <br>
-                                <a class="link-btn" href="https://drive.google.com/file/d/16GkYBCcYToKFanovoifqXsEZK1g2svTW/view?usp=sharing" target="_blank">
-                                    <i class="fa-brands fa-google-drive"></i> Ver documento
-                                </a>
-                            </div>
-                        </details>
 
-                        <details>
-                            <summary>
-                                <span>Primer Taller Grupal – Fase 1</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                            </summary>
                             <div class="detail-body">
 
                                 <details>
+
                                     <summary>
-                                        <span>Company</span>
-                                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+                                        <span>Primer Modelo</span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
                                     </summary>
+
                                     <div class="detail-body">
 
-                                        <details>
-                                            <summary>
-                                                <span>Modelo Relacional Extendido</span>
-                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                                            </summary>
-                                            <div class="detail-body">
-                                                <a href="Empresa.jpg" target="_blank">
-                                                    <img src="Empresa.jpg" class="modelo" alt="Empresa">
-                                                </a>
-                                                <p>
-                                                    Este modelo representa un sistema empresarial donde se relacionan empleados, departamentos, proyectos y ubicaciones.
-                                                </p>
-                                            </div>
-                                        </details>
+                                        <a href="Modelo.png" target="_blank">
+                                            <img
+                                                src="Modelo.png"
+                                                class="modelo"
+                                                alt="Primer modelo">
+                                        </a>
 
-                                        <details>
-                                            <summary>
-                                                <span>Conversión a tablas</span>
-                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                                            </summary>
-                                            <div class="detail-body">
-                                                <a href="REmpresat.jpg" target="_blank">
-                                                    <img src="Empresat.jpg" class="modelo" alt="Conversión Empresa">
-                                                </a>
-                                            </div>
-                                        </details>
+                                        <p>
+                                            Este modelo entidad-relación representa un sistema de vuelos donde se relacionan las entidades VUELO, AVIÓN, PILOTO y TRIPULACIÓN. Cada entidad contiene información importante, como el número de vuelo, tipo de avión, código del piloto y datos de la tripulación.
+                                        </p>
+
+                                        <br>
+
+                                        <a
+                                            class="link-btn"
+                                            href="https://lucid.app/lucidchart/b617ad19-4648-406a-9fcb-a84fd3de18b1/edit?invitationId=inv_1222ef7b-c1c8-411a-a71b-e624bd7d92be&page=0_0#"
+                                            target="_blank">
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            Ver en LucidChart
+
+                                        </a>
 
                                     </div>
+
                                 </details>
 
                                 <details>
+
                                     <summary>
-                                        <span>Comidas Rápidas</span>
-                                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                                        <span>Segundo Modelo</span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
                                     </summary>
+
                                     <div class="detail-body">
 
-                                        <details>
-                                            <summary>
-                                                <span>Modelo Relacional Extendido</span>
-                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                                            </summary>
-                                            <div class="detail-body">
-                                                <a href="Comida Rapida.jpg" target="_blank">
-                                                    <img src="Comida Rapida.jpg" class="modelo" alt="Comida rápida">
-                                                </a>
-                                                <p>
-                                                    Este modelo representa un sistema de pedidos para una pizzería, donde se gestionan clientes, pedidos, repartidores, promociones y artículos.
-                                                </p>
-                                            </div>
-                                        </details>
+                                        <a
+                                            href="Segundo Modelo.png"
+                                            target="_blank">
 
-                                        <details>
-                                            <summary>
-                                                <span>Conversión a tablas</span>
-                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                                            </summary>
-                                            <div class="detail-body">
-                                                <a href="Comida Rapidat.jpg" target="_blank">
-                                                    <img src="Comida Rapidat.jpg" class="modelo" alt="Conversión comida rápida">
-                                                </a>
-                                            </div>
-                                        </details>
+                                            <img
+                                                src="Segundo Modelo.png"
+                                                class="modelo"
+                                                alt="Segundo modelo">
+
+                                        </a>
+
+                                        <p>
+                                            Este modelo entidad-relación representa un sistema de visualización de contenido donde la entidad principal es USUARIO. El usuario puede ver contenido, realizar búsquedas y revisar un historial de visualización.
+                                        </p>
+
+                                        <br>
+
+                                        <a
+                                            class="link-btn"
+                                            href="https://lucid.app/lucidchart/46a9b657-e80f-4430-b576-bac90c07925b/edit?invitationId=inv_1876558f-378d-406e-bef5-d5447849c931&page=0_0#"
+                                            target="_blank">
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            Ver en LucidChart
+
+                                        </a>
 
                                     </div>
+
                                 </details>
 
                                 <details>
+
                                     <summary>
-                                        <span>Residuos Tóxicos</span>
-                                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                                        <span>Tercer Modelo</span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
                                     </summary>
+
+                                    <div class="detail-body">
+
+                                        <a
+                                            href="Tercer Modelo.png"
+                                            target="_blank">
+
+                                            <img
+                                                src="Tercer Modelo.png"
+                                                class="modelo"
+                                                alt="Tercer modelo">
+
+                                        </a>
+
+                                        <p>
+                                            Este modelo entidad-relación representa un sistema de biblioteca donde las entidades principales son LIBRO y PERSONA. El sistema almacena información de los libros y permite gestionar préstamos.
+                                        </p>
+
+                                    </div>
+
+                                </details>
+
+                                <details>
+
+                                    <summary>
+
+                                        <span>
+                                            Actividad de los 7 Modelos
+                                        </span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
+                                    </summary>
+
+                                    <div class="detail-body">
+
+                                        <p>
+                                            Desarrollo de 7 ejercicios de modelos entidad-relación utilizando la notación Peter Chen. Los ejercicios incluyen diferentes contextos como universidades, hospitales y sistemas de ventas.
+                                        </p>
+
+                                        <br>
+
+                                        <a
+                                            class="link-btn"
+                                            href="https://lucid.app/lucidchart/962a097e-99e2-4f89-b140-e314c2bfbb7a/edit?invitationId=inv_8aa05caf-2ec0-4388-afae-c504fd0f3078&page=0_0#"
+                                            target="_blank">
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            Ver actividad
+
+                                        </a>
+
+                                    </div>
+
+                                </details>
+
+                                <details>
+
+                                    <summary>
+
+                                        <span>
+                                            Actividad documentos 3 y 4
+                                        </span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
+                                    </summary>
+
+                                    <div class="detail-body">
+
+                                        <p>
+                                            Aplicación del modelo entidad-relación extendido en casos más complejos, utilizando conceptos como herencia, especialización y generalización.
+                                        </p>
+
+                                        <br>
+
+                                        <a
+                                            class="link-btn"
+                                            href="https://drive.google.com/file/d/16GkYBCcYToKFanovoifqXsEZK1g2svTW/view?usp=sharing"
+                                            target="_blank">
+
+                                            <i class="fa-brands fa-google-drive"></i>
+                                            Ver documento
+
+                                        </a>
+
+                                    </div>
+
+                                </details>
+
+                                <details>
+
+                                    <summary>
+
+                                        <span>
+                                            Primer Taller Grupal – Fase 1
+                                        </span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
+                                    </summary>
+
                                     <div class="detail-body">
 
                                         <details>
+
                                             <summary>
-                                                <span>Modelo Relacional Extendido</span>
-                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                                                <span>Company</span>
+
+                                                <div class="summary-icon">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+
                                             </summary>
+
                                             <div class="detail-body">
-                                                <a href="Residuos Toxicos.jpg" target="_blank">
-                                                    <img src="Residuos Toxicos.jpg" class="modelo" alt="Residuos tóxicos">
-                                                </a>
-                                                <p>
-                                                    Este modelo representa un sistema de gestión de residuos donde intervienen empresas productoras y transportistas.
-                                                </p>
+
+                                                <details>
+
+                                                    <summary>
+
+                                                        <span>
+                                                            Modelo Relacional Extendido
+                                                        </span>
+
+                                                        <div class="summary-icon">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </div>
+
+                                                    </summary>
+
+                                                    <div class="detail-body">
+
+                                                        <a
+                                                            href="Empresa.jpg"
+                                                            target="_blank">
+
+                                                            <img
+                                                                src="Empresa.jpg"
+                                                                class="modelo"
+                                                                alt="Empresa">
+
+                                                        </a>
+
+                                                        <p>
+                                                            Este modelo representa un sistema empresarial donde se relacionan empleados, departamentos, proyectos y ubicaciones.
+                                                        </p>
+
+                                                    </div>
+
+                                                </details>
+
+                                                <details>
+
+                                                    <summary>
+
+                                                        <span>
+                                                            Conversión a tablas
+                                                        </span>
+
+                                                        <div class="summary-icon">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </div>
+
+                                                    </summary>
+
+                                                    <div class="detail-body">
+
+                                                        <a
+                                                            href="REmpresat.jpg"
+                                                            target="_blank">
+
+                                                            <img
+                                                                src="Empresat.jpg"
+                                                                class="modelo"
+                                                                alt="Conversión Empresa">
+
+                                                        </a>
+
+                                                    </div>
+
+                                                </details>
+
                                             </div>
+
                                         </details>
 
                                         <details>
+
                                             <summary>
-                                                <span>Conversión a tablas</span>
-                                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                                                <span>
+                                                    Comidas Rápidas
+                                                </span>
+
+                                                <div class="summary-icon">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+
                                             </summary>
+
                                             <div class="detail-body">
-                                                <a href="Residuos Toxicost.jpg" target="_blank">
-                                                    <img src="Residuos Toxicost.jpg" class="modelo" alt="Conversión residuos tóxicos">
-                                                </a>
+
+                                                <details>
+
+                                                    <summary>
+
+                                                        <span>
+                                                            Modelo Relacional Extendido
+                                                        </span>
+
+                                                        <div class="summary-icon">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </div>
+
+                                                    </summary>
+
+                                                    <div class="detail-body">
+
+                                                        <a
+                                                            href="Comida Rapida.jpg"
+                                                            target="_blank">
+
+                                                            <img
+                                                                src="Comida Rapida.jpg"
+                                                                class="modelo"
+                                                                alt="Comida rápida">
+
+                                                        </a>
+
+                                                        <p>
+                                                            Este modelo representa un sistema de pedidos para una pizzería, donde se gestionan clientes, pedidos, repartidores, promociones y artículos.
+                                                        </p>
+
+                                                    </div>
+
+                                                </details>
+
+                                                <details>
+
+                                                    <summary>
+
+                                                        <span>
+                                                            Conversión a tablas
+                                                        </span>
+
+                                                        <div class="summary-icon">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </div>
+
+                                                    </summary>
+
+                                                    <div class="detail-body">
+
+                                                        <a
+                                                            href="Comida Rapidat.jpg"
+                                                            target="_blank">
+
+                                                            <img
+                                                                src="Comida Rapidat.jpg"
+                                                                class="modelo"
+                                                                alt="Conversión comida rápida">
+
+                                                        </a>
+
+                                                    </div>
+
+                                                </details>
+
                                             </div>
+
+                                        </details>
+
+                                        <details>
+
+                                            <summary>
+
+                                                <span>
+                                                    Residuos Tóxicos
+                                                </span>
+
+                                                <div class="summary-icon">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+
+                                            </summary>
+
+                                            <div class="detail-body">
+
+                                                <details>
+
+                                                    <summary>
+
+                                                        <span>
+                                                            Modelo Relacional Extendido
+                                                        </span>
+
+                                                        <div class="summary-icon">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </div>
+
+                                                    </summary>
+
+                                                    <div class="detail-body">
+
+                                                        <a
+                                                            href="Residuos Toxicos.jpg"
+                                                            target="_blank">
+
+                                                            <img
+                                                                src="Residuos Toxicos.jpg"
+                                                                class="modelo"
+                                                                alt="Residuos tóxicos">
+
+                                                        </a>
+
+                                                        <p>
+                                                            Este modelo representa un sistema de gestión de residuos donde intervienen empresas productoras y transportistas.
+                                                        </p>
+
+                                                    </div>
+
+                                                </details>
+
+                                                <details>
+
+                                                    <summary>
+
+                                                        <span>
+                                                            Conversión a tablas
+                                                        </span>
+
+                                                        <div class="summary-icon">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </div>
+
+                                                    </summary>
+
+                                                    <div class="detail-body">
+
+                                                        <a
+                                                            href="Residuos Toxicost.jpg"
+                                                            target="_blank">
+
+                                                            <img
+                                                                src="Residuos Toxicost.jpg"
+                                                                class="modelo"
+                                                                alt="Conversión residuos tóxicos">
+
+                                                        </a>
+
+                                                    </div>
+
+                                                </details>
+
+                                            </div>
+
                                         </details>
 
                                     </div>
+
                                 </details>
 
                             </div>
-                        </details>
 
-                    </div>
-                </details>
-
-                <details>
-                    <summary>
-                        <span>Taller de Normalización</span>
-                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                    </summary>
-                    <div class="detail-body">
-                        <p>
-                            Este trabajo de normalización se enfoca en la organización y optimización de bases de datos mediante la aplicación de las formas normales.
-                        </p>
-
-                        <details>
-                            <summary>
-                                <span>PDF</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                            </summary>
-                            <div class="detail-body">
-                                <a class="file-card" href="Taller_Avanzado_Normalizacion_A (1).pdf" download>
-                                    <div class="file-card-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div class="file-card-info">
-                                        <span class="file-card-name">Taller de Normalización</span>
-                                        <span class="file-card-sub">Descargar PDF</span>
-                                    </div>
-                                </a>
-                                <br>
-                                <a href="Taller_Avanzado_Normalizacion_A (1).pdf" download>
-                                    <img src="pdf.png" class="modelo" alt="PDF Taller Normalización">
-                                </a>
-                            </div>
                         </details>
 
                         <details>
+
                             <summary>
-                                <span>Excel</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                                <span>
+                                    Taller de Normalización
+                                </span>
+
+                                <div class="summary-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+
                             </summary>
+
                             <div class="detail-body">
-                                <a class="file-card" href="Taller_Avanzado_Normalizacion_A.xlsx" download>
-                                    <div class="file-card-icon xls"><i class="fa-solid fa-file-excel"></i></div>
-                                    <div class="file-card-info">
-                                        <span class="file-card-name">Taller de Normalización</span>
-                                        <span class="file-card-sub">Descargar Excel</span>
-                                    </div>
-                                </a>
-                                <br>
-                                <a href="Taller_Avanzado_Normalizacion_A.xlsx" download>
-                                    <img src="excel.png" class="modelo" alt="Excel Taller Normalización">
-                                </a>
+
                                 <p>
-                                    A través de distintos ejercicios se identifican redundancias y dependencias innecesarias para mejorar la estructura de las tablas.
+                                    Este trabajo de normalización se enfoca en la organización y optimización de bases de datos mediante la aplicación de las formas normales.
                                 </p>
-                                <br>
-                                <a class="link-btn" href="https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/gpovedaga_unbosque_edu_co/IQD61SLMV5sdQb1aSNGs0xqfAXxEOTrbXn6wv9MxqNLjqlM?e=PnjuT7" target="_blank">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver actividad
-                                </a>
+
+                                <details>
+
+                                    <summary>
+
+                                        <span>PDF</span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
+                                    </summary>
+
+                                    <div class="detail-body">
+
+                                        <a
+                                            class="file-card"
+                                            href="Taller_Avanzado_Normalizacion_A (1).pdf"
+                                            download>
+
+                                            <div class="file-card-icon pdf">
+                                                <i class="fa-solid fa-file-pdf"></i>
+                                            </div>
+
+                                            <div class="file-card-info">
+
+                                                <span class="file-card-name">
+                                                    Taller de Normalización
+                                                </span>
+
+                                                <span class="file-card-sub">
+                                                    Descargar PDF
+                                                </span>
+
+                                            </div>
+
+                                        </a>
+
+                                        <br>
+
+                                        <a
+                                            href="Taller_Avanzado_Normalizacion_A (1).pdf"
+                                            download>
+
+                                            <img
+                                                src="pdf.png"
+                                                class="modelo"
+                                                alt="PDF Taller Normalización">
+
+                                        </a>
+
+                                    </div>
+
+                                </details>
+
+                                <details>
+
+                                    <summary>
+
+                                        <span>Excel</span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
+                                    </summary>
+
+                                    <div class="detail-body">
+
+                                        <a
+                                            class="file-card"
+                                            href="Taller_Avanzado_Normalizacion_A.xlsx"
+                                            download>
+
+                                            <div class="file-card-icon xls">
+                                                <i class="fa-solid fa-file-excel"></i>
+                                            </div>
+
+                                            <div class="file-card-info">
+
+                                                <span class="file-card-name">
+                                                    Taller de Normalización
+                                                </span>
+
+                                                <span class="file-card-sub">
+                                                    Descargar Excel
+                                                </span>
+
+                                            </div>
+
+                                        </a>
+
+                                        <br>
+
+                                        <a
+                                            href="Taller_Avanzado_Normalizacion_A.xlsx"
+                                            download>
+
+                                            <img
+                                                src="excel.png"
+                                                class="modelo"
+                                                alt="Excel Taller Normalización">
+
+                                        </a>
+
+                                        <p>
+                                            A través de distintos ejercicios se identifican redundancias y dependencias innecesarias para mejorar la estructura de las tablas.
+                                        </p>
+
+                                        <br>
+
+                                        <a
+                                            class="link-btn"
+                                            href="https://unbosqueeduco-my.sharepoint.com/:x:/g/personal/gpovedaga_unbosque_edu_co/IQD61SLMV5sdQb1aSNGs0xqfAXxEOTrbXn6wv9MxqNLjqlM?e=PnjuT7"
+                                            target="_blank">
+
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            Ver actividad
+
+                                        </a>
+
+                                    </div>
+
+                                </details>
+
                             </div>
+
                         </details>
-
-                    </div>
-                </details>
-
-               
-                <details>
-                    <summary>
-                        <span>Álgebra Relacional</span>
-                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
-                    </summary>
-                    <div class="detail-body">
-                        <p>
-                            En esta actividad se desarrollaron ejercicios de álgebra relacional aplicando operaciones como selección, proyección, unión, diferencia y joins. Los ejercicios permitieron comprender cómo consultar y manipular información dentro de bases de datos relacionales mediante expresiones formales.
-                        </p>
 
                         <details>
+
                             <summary>
-                                <span>Ejercicios</span>
-                                <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                                <span>
+                                    Álgebra Relacional
+                                </span>
+
+                                <div class="summary-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+
                             </summary>
+
                             <div class="detail-body">
-                                <a class="file-card" href="algebrarelacional.pdf" target="_blank">
-                                    <div class="file-card-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
-                                    <div class="file-card-info">
-                                        <span class="file-card-name">Álgebra Relacional</span>
-                                        <span class="file-card-sub">Ver PDF</span>
+
+                                <p>
+                                    En esta actividad se desarrollaron ejercicios de álgebra relacional aplicando operaciones como selección, proyección, unión, diferencia y joins. Los ejercicios permitieron comprender cómo consultar y manipular información dentro de bases de datos relacionales mediante expresiones formales.
+                                </p>
+
+                                <details>
+
+                                    <summary>
+
+                                        <span>
+                                            Ejercicios
+                                        </span>
+
+                                        <div class="summary-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
+                                    </summary>
+
+                                    <div class="detail-body">
+
+                                        <a
+                                            class="file-card"
+                                            href="algebrarelacional.pdf"
+                                            target="_blank">
+
+                                            <div class="file-card-icon pdf">
+                                                <i class="fa-solid fa-file-pdf"></i>
+                                            </div>
+
+                                            <div class="file-card-info">
+
+                                                <span class="file-card-name">
+                                                    Álgebra Relacional
+                                                </span>
+
+                                                <span class="file-card-sub">
+                                                    Ver PDF
+                                                </span>
+
+                                            </div>
+
+                                        </a>
+
+                                        <br>
+
+                                        <a
+                                            href="algebrarelacional.pdf"
+                                            target="_blank">
+
+                                            <img
+                                                src="algebrarelacional.pdf"
+                                                class="modelo"
+                                                alt="Álgebra relacional">
+
+                                        </a>
+
                                     </div>
-                                </a>
-                                <br>
-                                <a href="algebrarelacional.pdf" target="_blank">
-                                    <img src="algebrarelacional.pdf" class="modelo" alt="Álgebra relacional">
-                                </a>
+
+                                </details>
+
                             </div>
+
+                        </details>
+
+                        <details>
+
+                            <summary>
+
+                                <span>
+                                    Proyecto GeoQuest
+                                </span>
+
+                                <div class="summary-icon">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+
+                            </summary>
+
+                            <div class="detail-body">
+
+                                <p>
+                                    GeoQuest es un proyecto académico desarrollado como una plataforma interactiva enfocada en el aprendizaje de geografía de manera dinámica y entretenida. El sistema permite a los usuarios poner a prueba sus conocimientos sobre países, capitales, banderas y continentes mediante diferentes modos de juego y preguntas. Además, el proyecto integra bases de datos, modelado relacional y desarrollo web para ofrecer una experiencia educativa organizada, intuitiva y atractiva para los usuarios, toda su documenta desarrollo y trabajo lo puedes encontrar en el repositorio de github.
+                                </p>
+
+                                <br>
+
+                                <a
+                                    class="link-btn"
+                                    href="https://github.com/isabellard/Geoquest#geoquest"
+                                    target="_blank">
+
+                                    <i class="fa-brands fa-github"></i>
+                                    Backend
+
+                                </a>
+
+                                &nbsp;
+
+                                <a
+                                    class="link-btn"
+                                    href="https://github.com/isabellard/GeoquestFront"
+                                    target="_blank">
+
+                                    <i class="fa-brands fa-github"></i>
+                                    Frontend
+
+                                </a>
+
+                            </div>
+
                         </details>
 
                     </div>
+
                 </details>
 
+
+
                 <details>
+
                     <summary>
-                        <span>Proyecto GeoQuest</span>
-                        <div class="summary-icon"><i class="fa-solid fa-plus"></i></div>
+
+                        <span>
+                            <i
+                                class="fa-solid fa-database"
+                                style="margin-right:8px;">
+                            </i>
+                            Bases2
+                        </span>
+
+                        <div class="summary-icon">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+
                     </summary>
+
                     <div class="detail-body">
-                        <p>
-                            GeoQuest es un proyecto académico desarrollado como una plataforma interactiva enfocada en el aprendizaje de geografía de manera dinámica y entretenida. El sistema permite a los usuarios poner a prueba sus conocimientos sobre países, capitales, banderas y continentes mediante diferentes modos de juego y preguntas. Además, el proyecto integra bases de datos, modelado relacional y desarrollo web para ofrecer una experiencia educativa organizada, intuitiva y atractiva para los usuarios, toda su documenta desarrollo y trabajo lo puedes encontrar en el repositorio de github.
-                        </p>
-                        <br>
-                        <a class="link-btn" href="https://github.com/isabellard/Geoquest#geoquest" target="_blank">
-                            <i class="fa-brands fa-github"></i> Backend
-                        </a>
-                        &nbsp;
-                        <a class="link-btn" href="https://github.com/isabellard/GeoquestFront" target="_blank">
-                            <i class="fa-brands fa-github"></i> Frontend
-                        </a>
+
+                       
+
                     </div>
+
                 </details>
 
             </div>
+
         </details>
 
     </div>
 
     <footer>
-        <div class="footer-name">Nataly Manrique Vera</div>
-        <div class="footer-role">Ingeniería de Sistemas · Universidad El Bosque</div>
+
+        <div class="footer-name">
+            Nataly Manrique Vera
+        </div>
+
+        <div class="footer-role">
+            Ingeniería de Sistemas · Universidad El Bosque
+        </div>
+
         <div class="footer-divider"></div>
-        <div class="footer-copy">Contacto: nmanriqueve@unbosque.edu.co</div>
-        <div class="footer-copy">Bogotá-Colombia</div>
-        <div class="footer-copy">2026-1 · Todos los derechos reservados</div>
+
+        <div class="footer-copy">
+            Contacto: nmanriqueve@unbosque.edu.co
+        </div>
+
+        <div class="footer-copy">
+            Bogotá-Colombia
+        </div>
+
+        <div class="footer-copy">
+            2026-2 · Todos los derechos reservados
+        </div>
+
     </footer>
 
-  
-    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">
+    <button
+        class="scroll-top"
+        id="scrollTop"
+        onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        aria-label="Volver arriba">
+
         <i class="fa-solid fa-arrow-up"></i>
+
     </button>
 
     <script>
+
         const nav = document.getElementById('mainNav');
+
         window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 20);
-            document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+
+            nav.classList.toggle(
+                'scrolled',
+                window.scrollY > 20
+            );
+
+            document
+                .getElementById('scrollTop')
+                .classList.toggle(
+                    'visible',
+                    window.scrollY > 400
+                );
+
         });
 
         function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('open');
+
+            document
+                .getElementById('navMenu')
+                .classList.toggle('open');
+
         }
 
-        document.querySelectorAll('#navMenu a').forEach(a => {
-            a.addEventListener('click', () => document.getElementById('navMenu').classList.remove('open'));
-        });
+        document
+            .querySelectorAll('#navMenu a')
+            .forEach(a => {
 
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), i * 60);
-                    observer.unobserve(entry.target);
-                }
+                a.addEventListener('click', () => {
+
+                    document
+                        .getElementById('navMenu')
+                        .classList.remove('open');
+
+                });
+
             });
-        }, { threshold: 0.08 });
 
-        reveals.forEach(el => observer.observe(el));
+        const reveals =
+            document.querySelectorAll('.reveal');
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach((entry, i) => {
+
+                        if (entry.isIntersecting) {
+
+                            setTimeout(
+                                () =>
+                                    entry.target.classList.add('visible'),
+                                i * 60
+                            );
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.08
+                }
+            );
+
+        reveals.forEach(
+            el => observer.observe(el)
+        );
+
     </script>
 
 </body>
